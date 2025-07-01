@@ -66,4 +66,11 @@ public class Undo {
         System.out.println("Command history cleaned.");
     }
 
+    @Override //Represents internal statement of the Obj vs seeListCommands (user interface)
+    public String toString() {
+        return "Undo{" +
+                "commandHistory=" + commandHistory +
+                '}';
+    }
+
 }
