@@ -59,4 +59,4 @@ To Run code, press `Ctrl F5` or click the `play` icon in the gutter.
 ## 📚 Additional Resources
 
 - [Refactoring guru](https://refactoring.guru/es/design-patterns)
-- [Java Design Patterns](https://refactoring.guru/es/design-patterns)
+- [Java Design Patterns](https://www.tutorialspoint.com/design_pattern/data_access_object_pattern.htm)
