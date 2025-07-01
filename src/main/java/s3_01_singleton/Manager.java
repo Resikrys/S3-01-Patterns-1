@@ -38,7 +38,6 @@ public class Manager {
     private void commandHandler(String command) throws InvalidCommandException {
         String trimmedCommand = command.trim();
 
-        // Podrías usar un switch si tienes muchos comandos fijos, o if/else if para menos.
         if (trimmedCommand.startsWith("add ")) {
             String newCommand = trimmedCommand.substring(4).trim(); // Extract the text after "add "
             if (!newCommand.isEmpty()) {
