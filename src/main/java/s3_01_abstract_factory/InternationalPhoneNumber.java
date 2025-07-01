@@ -1,6 +1,6 @@
 package s3_01_abstract_factory;
 
-public interface InternationalPhone {
+public interface InternationalPhoneNumber {
     enum Type { FIXED, MOBILE }
     String getFormattedPhone();
     //Other getters
