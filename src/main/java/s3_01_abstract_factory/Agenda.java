@@ -1,5 +1,8 @@
 package s3_01_abstract_factory;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Agenda {
     private List<InternationalAddress> addresses;
     private List<InternationalPhoneNumber> phoneNumbers;

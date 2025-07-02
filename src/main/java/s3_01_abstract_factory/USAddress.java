@@ -49,7 +49,8 @@ public class USAddress implements InternationalAddress {
 
     @Override
     public String getFormattedAddress() {
-        return "St/ " + getStreet() + ", " + getNumber() + " " + getFloor() + " " + getPortal() + ", " + getCity() + " (" + getZipCode() + ") - " + getCountry();
+        return "St/ " + getStreet() + ", " + getNumber() + " " + getFloor() + " " + getPortal() + ", "
+                + getCity() + " (" + getZipCode() + ") - " + getCountry();
     }
-    // ...
+
 }
