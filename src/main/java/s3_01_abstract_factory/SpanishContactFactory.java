@@ -2,12 +2,24 @@ package s3_01_abstract_factory;
 
 public class SpanishContactFactory implements ContactFactory {
     @Override
-    public InternationalAddress createAddress(String street, String number, String floor, String portal, String city, String postalCode, String country) {
-        return new SpanishAddress(street, number, floor, portal, city, postalCode, country);
+    public InternationalAddress createAddress(AddressDataDTO data) {
+        return new SpanishAddress(
+                data.getStreet(),
+                data.getNumber(),
+                data.getFloor(),
+                data.getPortal(),
+                data.getCity(),
+                data.getPostalCode(),
+                data.getCountry()
+        );
     }
 
     @Override
-    public InternationalPhoneNumber createPhoneNumber(String prefix, String number, InternationalPhoneNumber.Type type) {
-        return new SpanishPhoneNumber(prefix, number, type);
+    public InternationalPhoneNumber createPhoneNumber(PhoneNumberDataDTO data) {
+        return new SpanishPhoneNumber(
+                data.getPrefix(),
+                data.getPhoneNumber(),
+                data.getType()
+        );
     }
 }
