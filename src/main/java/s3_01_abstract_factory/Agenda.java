@@ -12,18 +12,21 @@ public class Agenda {
         this.phoneNumbers = new ArrayList<>();
     }
 
-    // Método para añadir un contacto utilizando la fábrica
-    public void addContact(ContactFactory factory, /* parámetros para construir la dirección y el teléfono */) {
-        InternationalAddress address = factory.createAddress(/* ... */);
-        InternationalPhoneNumber phoneNumber = factory.createPhoneNumber(/* ... */);
-
-        // Aquí podrías configurar los atributos del address y phoneNumber
-        // address.setStreet("...");
-        // phoneNumber.setPrefix("...");
+    public void addContact(
+            ContactFactory factory,
+            String street, int number, String floor, String portal, String city, String postalCode, String country,
+            int prefix, int phoneNumber, InternationalPhoneNumber.Type type
+    ) {
+        // Now we pass all the required parameters to the factory methods
+        InternationalAddress address = factory.createAddress(street, number, floor, portal, city, postalCode, country);
+        InternationalPhoneNumber phoneNum = factory.createPhoneNumber(prefix, phoneNumber, type);
 
         this.addresses.add(address);
-        this.phoneNumbers.add(phoneNumber);
-        System.out.println("Contacto añadido: " + address.getFormattedAddress() + ", " + phoneNumber.getFormattedNumber());
+        this.phoneNumbers.add(phoneNum); // Store them as a pair or in separate lists as you have it
+        System.out.println("--- Contacto Añadido ---");
+        System.out.println("Dirección: " + address.getFormattedAddress());
+        System.out.println("Teléfono: " + phoneNum.getFormattedPhone());
+        System.out.println("------------------------");
     }
 
     // ... otros métodos de la agenda

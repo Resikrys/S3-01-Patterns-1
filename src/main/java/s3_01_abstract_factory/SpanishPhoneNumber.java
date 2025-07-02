@@ -3,20 +3,20 @@ package s3_01_abstract_factory;
 public class SpanishPhoneNumber implements InternationalPhoneNumber {
 
     private Type type; //(FIXED/MOBILE)
-    private int prefix;
-    private int number;
+    private String prefix;
+    private String number;
 
-    public SpanishPhoneNumber(int prefix, int number, Type type) {
+    public SpanishPhoneNumber(String prefix, String number, Type type) {
         this.prefix = prefix;
         this.number = number;
         this.type = type;
     }
 
-    public int getPrefix() {
+    public String getPrefix() {
         return this.prefix;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return this.number;
     }
 

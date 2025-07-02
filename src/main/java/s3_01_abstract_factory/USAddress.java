@@ -2,14 +2,14 @@ package s3_01_abstract_factory;
 
 public class USAddress implements InternationalAddress {
     private String street;
-    private int number;
-    private int floor;
-    private int portal;
+    private String number;
+    private String floor;
+    private String portal;
     private String city;
     private String zipCode;
     private String country;
 
-    public USAddress(String street, int number, int floor, int portal, String city, String zipCode, String country) {
+    public USAddress(String street, String number, String floor, String portal, String city, String zipCode, String country) {
         this.street = street;
         this.number = number;
         this.floor = floor;
@@ -23,15 +23,15 @@ public class USAddress implements InternationalAddress {
         return street;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public int getFloor() {
+    public String getFloor() {
         return floor;
     }
 
-    public int getPortal() {
+    public String getPortal() {
         return portal;
     }
 
