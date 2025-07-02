@@ -42,7 +42,7 @@ public class USAddress implements InternationalAddress {
         return state;
     }
 
-    public String getZipCode() {
+    public String getPostalCode() {
         return zipCode;
     }
 
@@ -54,7 +54,7 @@ public class USAddress implements InternationalAddress {
     @Override
     public String getFormattedAddress() {
         return "St/ " + getStreet() + ", " + getNumber() + " " + getApartment() + ", "
-                + getCity() + getState() +  " (" + getZipCode() + ") - " + getCountry();
+                + getCity() + getState() +  " (" + getPostalCode() + ") - " + getCountry();
     }
 
 }
