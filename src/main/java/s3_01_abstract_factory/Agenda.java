@@ -12,16 +12,12 @@ public class Agenda {
         this.phoneNumbers = new ArrayList<>();
     }
 
-    public void addContact(
-            ContactFactory factory,
-            String street, String number, String floor, String portal, String city, String postalCode, String country,
-            String prefix, String phoneNumber, InternationalPhoneNumber.Type type
-    ) {
-        InternationalAddress address = factory.createAddress(street, number, floor, portal, city, postalCode, country);
-        InternationalPhoneNumber phoneNum = factory.createPhoneNumber(prefix, phoneNumber, type);
+    public void addContact(ContactFactory factory, AddressDataDTO addressData, PhoneNumberDataDTO phoneData) {
+        InternationalAddress address = factory.createAddress(addressData);
+        InternationalPhoneNumber phoneNum = factory.createPhoneNumber(phoneData);
 
         this.addresses.add(address);
-        this.phoneNumbers.add(phoneNum); // Feature: store them as a pair in new Contact Class
+        this.phoneNumbers.add(phoneNum);
         System.out.println("--- Contact Added ---");
         System.out.println("Address: " + address.getFormattedAddress());
         System.out.println("Phone number: " + phoneNum.getFormattedPhone());
