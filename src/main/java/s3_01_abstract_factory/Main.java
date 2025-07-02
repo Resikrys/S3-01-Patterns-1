@@ -4,17 +4,39 @@ public class Main {
     public static void main(String[] args) {
 
         Agenda agenda = new Agenda();
+
+        //Spanish Contact
+        AddressDataDTO spanishAddressData = new AddressDataDTO(
+                "Calle Falsa", "123", "3", "A", null,
+                "Barcelona", "08001", null, null, "Spain"
+        );
+
+        PhoneNumberDataDTO spanishPhoneData = new PhoneNumberDataDTO(
+                "34", "600123456", InternationalPhoneNumber.Type.MOBILE
+        );
+
         ContactFactory spanishFactory = new SpanishContactFactory();
+        agenda.addContact(spanishFactory, spanishAddressData, spanishPhoneData);
+
+        System.out.println("\n");
+
+        //US Contact
+        AddressDataDTO usAddressData = new AddressDataDTO(
+                "Elm Street", "13", null, null, "Apt 4B", // floor y portal son null para EE. UU.
+                "Springfield", null, "62704", "IL", "USA" // postalCode es null para EE. UU.
+        );
+
+        PhoneNumberDataDTO usPhoneData = new PhoneNumberDataDTO(
+                "1", "5551234567", InternationalPhoneNumber.Type.FIXED
+        );
+
         ContactFactory usFactory = new USContactFactory();
+        agenda.addContact(usFactory, usAddressData, usPhoneData);
 
-        agenda.addContact(spanishFactory,
-                "Plaza de la fuente", "13", "2", "B", "Guipuzkoa", "28314", "Spain",
-                "+34", "999760548", InternationalPhoneNumber.Type.MOBILE
-        );
+        //Agenda methods:
+        agenda.viewAllContacts();
+        agenda.filterContacts("spanish");
+        agenda.filterContacts("us");
 
-        agenda.addContact(usFactory,
-                "687 Myah Valley", "13", "2", "B", "West Rosario Haven", "75373-4585", "USA",
-                "+1", "870-535-7911", InternationalPhoneNumber.Type.FIXED
-        );
     }
 }
