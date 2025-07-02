@@ -6,10 +6,11 @@ public class USAddress implements InternationalAddress {
     private String floor;
     private String portal;
     private String city;
+    private String state;
     private String zipCode;
     private String country;
 
-    public USAddress(String street, String number, String floor, String portal, String city, String zipCode, String country) {
+    public USAddress(String street, String number, String floor, String portal, String city, String state, String zipCode, String country) {
         this.street = street;
         this.number = number;
         this.floor = floor;
@@ -39,6 +40,10 @@ public class USAddress implements InternationalAddress {
         return city;
     }
 
+    public String getState() {
+        return state;
+    }
+
     public String getZipCode() {
         return zipCode;
     }
@@ -50,7 +55,7 @@ public class USAddress implements InternationalAddress {
     @Override
     public String getFormattedAddress() {
         return "St/ " + getStreet() + ", " + getNumber() + " " + getFloor() + " " + getPortal() + ", "
-                + getCity() + " (" + getZipCode() + ") - " + getCountry();
+                + getCity() + getState() +  " (" + getZipCode() + ") - " + getCountry();
     }
 
 }

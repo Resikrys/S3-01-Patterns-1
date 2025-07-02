@@ -2,8 +2,9 @@ package s3_01_abstract_factory;
 
 public class USContactFactory implements ContactFactory {
     @Override
-    public InternationalAddress createAddress(String street, String number, String floor, String portal, String city, String zipCode, String country) {
-        return new USAddress(street, number, floor, portal, city, zipCode, country);
+    public InternationalAddress createAddress(String street, String number, String floor, String portal, String city, String state,
+                                              String zipCode, String country) {
+        return new USAddress(street, number, floor, portal, city, state,  zipCode, country);
     }
 
     @Override
