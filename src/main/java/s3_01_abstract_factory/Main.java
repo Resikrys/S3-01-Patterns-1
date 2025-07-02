@@ -16,7 +16,8 @@ public class Main {
         );
 
         ContactFactory spanishFactory = new SpanishContactFactory();
-        agenda.addContact(spanishFactory, spanishAddressData, spanishPhoneData);
+        Contact spanishContact = agenda.addContact(spanishFactory, spanishAddressData, spanishPhoneData);
+        // System.out.println("\nSpanish Contact object: " + spanishContact.toString());
 
         System.out.println("\n");
 
@@ -31,7 +32,7 @@ public class Main {
         );
 
         ContactFactory usFactory = new USContactFactory();
-        agenda.addContact(usFactory, usAddressData, usPhoneData);
+        Contact usContact = agenda.addContact(usFactory, usAddressData, usPhoneData);
 
         //Agenda methods:
         agenda.viewAllContacts();
