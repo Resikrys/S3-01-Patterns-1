@@ -9,6 +9,6 @@ public class AccelerateCommand implements Command {
 
     @Override
     public void execute() {
-        vehicle.start();
+        vehicle.accelerate();
     }
 }

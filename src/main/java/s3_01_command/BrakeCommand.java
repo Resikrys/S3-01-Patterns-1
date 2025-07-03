@@ -9,6 +9,6 @@ public class BrakeCommand implements Command {
 
     @Override
     public void execute() {
-        vehicle.start();
+        vehicle.brake();
     }
 }
