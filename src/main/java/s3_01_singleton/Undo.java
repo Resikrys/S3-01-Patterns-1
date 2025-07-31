@@ -1,6 +1,7 @@
 package s3_01_singleton;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Undo {
@@ -8,37 +9,39 @@ public class Undo {
     private List<String> commandHistory;
 
     private Undo() {
-        System.out.println("Undo instance created (only once!)");
         commandHistory = new ArrayList<>();
     }
 
     public static Undo getInstance() {
-        //In a production environment, you would consider thread-safety here (like the example)
-//        try {
-//            Thread.sleep(1000);
-//        } catch (InterruptedException ex) {
-//            ex.printStackTrace();
-//        }
-//        this.value = value;
         if (instance == null) {
             instance = new Undo();
         }
         return instance;
     }
 
-    // Class methods Undo (add command, delete last, see history) + check & delete, clear history
+    public List<String> getCommandHistory() {
+        return Collections.unmodifiableList(commandHistory);
+    }
+
+    public void checkCommandHistoryIsEmpty() throws NoCommandsToUndoException {
+        if(commandHistory.isEmpty()) {
+            throw new NoCommandsToUndoException("No commands in history.");
+        }
+    }
 
     public void addCommand(String command) {
         commandHistory.add(command);
     }
 
-    public void undoLastCommand() {
-        if (!commandHistory.isEmpty()) {
-            String removedCommand = commandHistory.remove(commandHistory.size() - 1);
-            System.out.println("Undone command: " + removedCommand);
-        } else {
-            System.out.println("No commands to undo.");
-        }
+    public String undoLastCommand() throws NoCommandsToUndoException {
+//        if (!commandHistory.isEmpty()) {
+//            String removedCommand = commandHistory.remove(commandHistory.size() - 1);
+//            System.out.println("Undone command: " + removedCommand);
+//        } else {
+//            System.out.println("No commands to undo.");
+//        }
+        checkCommandHistoryIsEmpty(); // cláusula de guarda
+        return commandHistory.remove(commandHistory.size() - 1);
     }
 
     public void seeListCommands() {
@@ -66,7 +69,7 @@ public class Undo {
         System.out.println("Command history cleaned.");
     }
 
-    @Override //Represents internal statement of the Obj vs seeListCommands (user interface)
+    @Override
     public String toString() {
         return "Undo{" +
                 "commandHistory=" + commandHistory +

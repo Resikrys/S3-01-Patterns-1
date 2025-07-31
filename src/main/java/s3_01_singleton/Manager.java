@@ -35,34 +35,51 @@ public class Manager {
         scanner.close();
     }
 
-    private void commandHandler(String command) throws InvalidCommandException {
+    private void commandHandler(String command) {
         String trimmedCommand = command.trim();
 
         if (trimmedCommand.startsWith("add ")) {
             String newCommand = trimmedCommand.substring(4).trim(); // Extract the text after "add "
-            if (!newCommand.isEmpty()) {
-                undoManager.addCommand(newCommand);
-            } else {
+            if (newCommand.isEmpty()) {
                 throw new InvalidCommandException("The 'add' command requires a text. Use: add <text>");
             }
-        } else if (trimmedCommand.equalsIgnoreCase("undo")) {
+
+            undoManager.addCommand(newCommand);
+            return;
+        }
+
+        if (trimmedCommand.equalsIgnoreCase("undo")) {
             undoManager.undoLastCommand();
-        } else if (trimmedCommand.startsWith("delete ")) {
+            return;
+        }
+
+        if (trimmedCommand.startsWith("delete ")) {
             String commandToDelete = trimmedCommand.substring(7).trim(); // Extract the text after "delete "
-            if (!commandToDelete.isEmpty()) {
-                undoManager.checkAndDelete(commandToDelete);
-            } else {
+            if (commandToDelete.isEmpty()) {
                 throw new InvalidCommandException("Command 'delete' requires a text. Use: delete <text>");
             }
-        } else if (trimmedCommand.equalsIgnoreCase("history")) {
-            undoManager.seeListCommands();
-        } else if (trimmedCommand.equalsIgnoreCase("clear")) {
-            undoManager.clearHistory();
-        } else if (trimmedCommand.equalsIgnoreCase("help")) {
-            printHelp();
-        } else {
-            throw new InvalidCommandException("Invalid command: '" + command + "'. Type 'help' to see all available commands.");
+            undoManager.checkAndDelete(commandToDelete);
+            return;
+
         }
+
+        if (trimmedCommand.equalsIgnoreCase("history")) {
+            undoManager.seeListCommands();
+            return;
+        }
+
+        if (trimmedCommand.equalsIgnoreCase("clear")) {
+            undoManager.clearHistory();
+            return;
+        }
+
+        if (trimmedCommand.equalsIgnoreCase("help")) {
+            printHelp();
+            return;
+        }
+
+        throw new InvalidCommandException("Invalid command: '" + command + "'. Type 'help' to see all available commands.");
+
     }
 
     private void printHelp() {
