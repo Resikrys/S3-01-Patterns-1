@@ -1,15 +1,27 @@
 package s3_01_singleton;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
+import java.util.function.Consumer;
 
 public class Manager {
     private Undo undoManager;
     private Scanner scanner;
+    private final Map<String, Consumer<String>> commandHandlers;
 
     public Manager() {
         this.undoManager = Undo.getInstance();
         this.scanner = new Scanner(System.in);
+        // Inicialitzem el mapa amb els comandaments i les seves accions
+        this.commandHandlers = new HashMap<>();
+        initializeCommands();
         System.out.println("Command Console Started. Type 'help' to see the available commands.");
+    }
+
+    // Mètode per inicialitzar el mapa de comandaments
+    private void initializeCommands() {
+
     }
 
     public void startProgram() {
