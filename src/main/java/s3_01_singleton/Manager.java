@@ -41,9 +41,7 @@ public class Manager {
 
             try {
                 commandHandler(input);
-            } catch (InvalidCommandException e) {
-                System.err.println("Error: " + e.getMessage());
-            } catch (NoCommandsToUndoException e) {
+            } catch (InvalidCommandException | NoCommandsToUndoException e) {
                 System.err.println("Error: " + e.getMessage());
             } catch (Exception e) {
                 System.err.println("An unexpected error has occurred: " + e.getMessage());

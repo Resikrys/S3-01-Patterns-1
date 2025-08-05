@@ -34,7 +34,7 @@ public class Undo {
     }
 
     public String undoLastCommand() throws NoCommandsToUndoException {
-        checkCommandHistoryIsEmpty(); // cláusula de guarda
+        checkCommandHistoryIsEmpty();
         return commandHistory.remove(commandHistory.size() - 1);
     }
 
