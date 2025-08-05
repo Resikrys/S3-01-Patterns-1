@@ -1,6 +1,7 @@
 package s3_01_singleton;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Scanner;
 import java.util.function.Consumer;
@@ -13,15 +14,18 @@ public class Manager {
     public Manager() {
         this.undoManager = Undo.getInstance();
         this.scanner = new Scanner(System.in);
-        // Inicialitzem el mapa amb els comandaments i les seves accions
         this.commandHandlers = new HashMap<>();
         initializeCommands();
         System.out.println("Command Console Started. Type 'help' to see the available commands.");
     }
 
-    // Mètode per inicialitzar el mapa de comandaments
     private void initializeCommands() {
-        //Add handlers methods
+        commandHandlers.put("add", this::handleAdd);
+        commandHandlers.put("undo", this::handleUndo);
+        commandHandlers.put("delete", this::handleDelete);
+        commandHandlers.put("history", this::handleHistory);
+        commandHandlers.put("clear", this::handleClear);
+        commandHandlers.put("help", this::handleHelp);
     }
 
     public void startProgram() {
@@ -59,7 +63,6 @@ public class Manager {
         String action = parts[0].toLowerCase();
         String argument = (parts.length > 1) ? parts[1].trim() : "";
 
-        // Cerquem l'acció al mapa.
         Consumer<String> handler = commandHandlers.get(action);
         if (handler != null) {
             handler.accept(argument);
@@ -68,10 +71,14 @@ public class Manager {
         }
     }
 
-    private void handleAdd(String argument) {
+    private void checkArgumentIsPresent(String argument, String commandName) {
         if (argument.isEmpty()) {
-            throw new InvalidCommandException("The 'add' command requires a text. Use: add <text>");
+            throw new InvalidCommandException("Command '" + commandName + "' requires a text. Use: " + commandName + " <text>");
         }
+    }
+
+    private void handleAdd(String argument) {
+        checkArgumentIsPresent(argument, "add");
         undoManager.addCommand(argument);
         System.out.println("Command added: '" + argument + "'");
     }
@@ -85,9 +92,7 @@ public class Manager {
     }
 
     private void handleDelete(String argument) {
-        if (argument.isEmpty()) {
-            throw new InvalidCommandException("Command 'delete' requires a text. Use: delete <text>");
-        }
+        checkArgumentIsPresent(argument, "delete");
         boolean commandRemoved = undoManager.checkAndDelete(argument);
         if (commandRemoved) {
             System.out.println("Command erased: '" + argument + "'");
@@ -127,52 +132,6 @@ public class Manager {
         printHelp();
     }
 
-//    private void commandHandler(String command) {
-//        String trimmedCommand = command.trim();
-//
-//        if (trimmedCommand.startsWith("add ")) {
-//            String newCommand = trimmedCommand.substring(4).trim(); // Extract the text after "add "
-//            if (newCommand.isEmpty()) {
-//                throw new InvalidCommandException("The 'add' command requires a text. Use: add <text>");
-//            }
-//
-//            undoManager.addCommand(newCommand);
-//            return;
-//        }
-//
-//        if (trimmedCommand.equalsIgnoreCase("undo")) {
-//            undoManager.undoLastCommand();
-//            return;
-//        }
-//
-//        if (trimmedCommand.startsWith("delete ")) {
-//            String commandToDelete = trimmedCommand.substring(7).trim(); // Extract the text after "delete "
-//            if (commandToDelete.isEmpty()) {
-//                throw new InvalidCommandException("Command 'delete' requires a text. Use: delete <text>");
-//            }
-//            undoManager.checkAndDelete(commandToDelete);
-//            return;
-//
-//        }
-//
-//        if (trimmedCommand.equalsIgnoreCase("history")) {
-//            undoManager.seeListCommands();
-//            return;
-//        }
-//
-//        if (trimmedCommand.equalsIgnoreCase("clear")) {
-//            undoManager.clearHistory();
-//            return;
-//        }
-//
-//        if (trimmedCommand.equalsIgnoreCase("help")) {
-//            printHelp();
-//            return;
-//        }
-//
-//        throw new InvalidCommandException("Invalid command: '" + command + "'. Type 'help' to see all available commands.");
-//
-//    }
 
     private void printHelp() {
         System.out.println("--- Available Commands ---");
