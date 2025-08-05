@@ -77,6 +77,12 @@ public class Manager {
         }
     }
 
+    private void checkArgumentIsNotPresent(String argument, String commandName) {
+        if (!argument.isEmpty()) {
+            throw new InvalidCommandException("Command '" + commandName + "' does not accept arguments.");
+        }
+    }
+
     private void handleAdd(String argument) {
         checkArgumentIsPresent(argument, "add");
         undoManager.addCommand(argument);
@@ -84,9 +90,7 @@ public class Manager {
     }
 
     private void handleUndo(String argument) {
-        if (!argument.isEmpty()) {
-            throw new InvalidCommandException("The 'undo' command does not accept arguments.");
-        }
+        checkArgumentIsNotPresent(argument, "undo");
         String removedCommand = undoManager.undoLastCommand();
         System.out.println("Undone command: '" + removedCommand + "'");
     }
@@ -102,9 +106,7 @@ public class Manager {
     }
 
     private void handleHistory(String argument) {
-        if (!argument.isEmpty()) {
-            throw new InvalidCommandException("The 'history' command does not accept arguments.");
-        }
+        checkArgumentIsNotPresent(argument, "history");
         List<String> history = undoManager.seeListCommands();
         if (history.isEmpty()) {
             System.out.println("No commands in history.");
@@ -118,17 +120,13 @@ public class Manager {
     }
 
     private void handleClear(String argument) {
-        if (!argument.isEmpty()) {
-            throw new InvalidCommandException("The 'clear' command does not accept arguments.");
-        }
+        checkArgumentIsNotPresent(argument, "clear");
         undoManager.clearHistory();
         System.out.println("Command history cleaned.");
     }
 
     private void handleHelp(String argument) {
-        if (!argument.isEmpty()) {
-            throw new InvalidCommandException("The 'help' command does not accept arguments.");
-        }
+        checkArgumentIsNotPresent(argument, "help");
         printHelp();
     }
 
