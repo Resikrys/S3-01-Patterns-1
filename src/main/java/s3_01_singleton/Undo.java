@@ -44,29 +44,35 @@ public class Undo {
         return commandHistory.remove(commandHistory.size() - 1);
     }
 
-    public void seeListCommands() {
-        if (commandHistory.isEmpty()) {
-            System.out.println("No commands in history.");
-        } else {
-            System.out.println("Command history:");
-            for (int i = 0; i < commandHistory.size(); i++) {
-                System.out.println((i + 1) + ": " + commandHistory.get(i));
-            }
-            System.out.println("-----------------------------\n");
-        }
+//    public void seeListCommands() {
+//        if (commandHistory.isEmpty()) {
+//            System.out.println("No commands in history.");
+//        } else {
+//            System.out.println("Command history:");
+//            for (int i = 0; i < commandHistory.size(); i++) {
+//                System.out.println((i + 1) + ": " + commandHistory.get(i));
+//            }
+//            System.out.println("-----------------------------\n");
+//        }
+//    }
+    public List<String> seeListCommands() throws NoCommandsToUndoException {
+        checkCommandHistoryIsEmpty();
+        return commandHistory;
     }
 
-    public void checkAndDelete(String commandToDelete) {
-        if (commandHistory.remove(commandToDelete)) {
-            System.out.println("Command erased: '" + commandToDelete + "'");
-        } else {
-            System.out.println("Command '" + commandToDelete + "' not found in history.");
-        }
+//    public void checkAndDelete(String commandToDelete) {
+//        if (commandHistory.remove(commandToDelete)) {
+//            System.out.println("Command erased: '" + commandToDelete + "'");
+//        } else {
+//            System.out.println("Command '" + commandToDelete + "' not found in history.");
+//        }
+//    }
+    public boolean checkAndDelete(String commandToDelete) {
+        return commandHistory.remove(commandToDelete);
     }
 
     public void clearHistory() {
         commandHistory.clear();
-        System.out.println("Command history cleaned.");
     }
 
     @Override
