@@ -7,4 +7,5 @@ public interface InternationalAddress {
     String getCity();
     String getPostalCode(); // Generic name -> US will return zipCode here
     String getCountry();
+    String getCountryCode();
 }

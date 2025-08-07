@@ -52,6 +52,11 @@ public class USAddress implements InternationalAddress {
     }
 
     @Override
+    public String getCountryCode() {
+        return "us";
+    }
+
+    @Override
     public String getFormattedAddress() {
         return "St/ " + getStreet() + ", " + getNumber() + " " + getApartment() + ", "
                 + getCity() + getState() +  " (" + getPostalCode() + ") - " + getCountry();

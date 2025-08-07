@@ -48,6 +48,11 @@ public class SpanishAddress implements InternationalAddress {
     }
 
     @Override
+    public String getCountryCode() {
+        return "es";
+    }
+
+    @Override
     public String getFormattedAddress() {
         return "C/ " + getStreet() + ", " + getNumber() + " " + getFloor() + " " + getPortal() + ", "
                 + getCity() + " (" + getPostalCode() + ") - " + getCountry();
