@@ -58,7 +58,7 @@ public class AgendaController {
                 Contact contact = allContacts.get(i);
                 System.out.println("Contacto #" + (i + 1) + ":");
                 System.out.println("  Dirección: " + contact.getAddress().getFormattedAddress());
-                System.out.println("  Teléfono: " + contact.getPhoneNumber().getFormattedNumber());
+                System.out.println("  Teléfono: " + contact.getPhoneNumber().getFormattedPhone());
             }
         }
     }
@@ -70,7 +70,7 @@ public class AgendaController {
             System.out.println("No se encontraron contactos para este país.");
         } else {
             for (Contact contact : filteredContacts) {
-                System.out.println("  - " + contact.getAddress().getFormattedAddress() + " | " + contact.getPhoneNumber().getFormattedNumber());
+                System.out.println("  - " + contact.getAddress().getFormattedAddress() + " | " + contact.getPhoneNumber().getFormattedPhone());
             }
         }
     }
