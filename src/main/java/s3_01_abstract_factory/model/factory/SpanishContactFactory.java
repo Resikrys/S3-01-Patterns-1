@@ -1,4 +1,11 @@
-package s3_01_abstract_factory;
+package s3_01_abstract_factory.model.factory;
+
+import s3_01_abstract_factory.model.product.InternationalAddress;
+import s3_01_abstract_factory.model.product.InternationalPhoneNumber;
+import s3_01_abstract_factory.model.product.SpanishAddress;
+import s3_01_abstract_factory.model.product.SpanishPhoneNumber;
+import s3_01_abstract_factory.model.dto.AddressDataDTO;
+import s3_01_abstract_factory.model.dto.PhoneNumberDataDTO;
 
 public class SpanishContactFactory implements ContactFactory {
     @Override

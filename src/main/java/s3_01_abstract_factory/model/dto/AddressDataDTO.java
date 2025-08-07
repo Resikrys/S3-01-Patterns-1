@@ -1,4 +1,4 @@
-package s3_01_abstract_factory;
+package s3_01_abstract_factory.model.dto;
 
 public class AddressDataDTO {
     private String street;

@@ -1,4 +1,4 @@
-package s3_01_abstract_factory;
+package s3_01_abstract_factory.model.product;
 
 public class SpanishAddress implements InternationalAddress {
     private String street;
@@ -51,12 +51,6 @@ public class SpanishAddress implements InternationalAddress {
     public String getCountryCode() {
         return "es";
     }
-
-//    @Override
-//    public String getFormattedAddress() {
-//        return "C/ " + getStreet() + ", " + getNumber() + " " + getFloor() + " " + getPortal() + ", "
-//                + getCity() + " (" + getPostalCode() + ") - " + getCountry();
-//    }
 
     @Override
     public String getFormattedAddress() {

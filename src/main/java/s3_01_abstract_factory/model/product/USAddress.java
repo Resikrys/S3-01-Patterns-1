@@ -1,4 +1,4 @@
-package s3_01_abstract_factory;
+package s3_01_abstract_factory.model.product;
 
 public class USAddress implements InternationalAddress {
     private String street;
@@ -55,12 +55,6 @@ public class USAddress implements InternationalAddress {
     public String getCountryCode() {
         return "us";
     }
-
-//    @Override
-//    public String getFormattedAddress() {
-//        return "St/ " + getStreet() + ", " + getNumber() + " " + getApartment() + ", "
-//                + getCity() + getState() +  " (" + getPostalCode() + ") - " + getCountry();
-//    }
 
     @Override
     public String getFormattedAddress() {

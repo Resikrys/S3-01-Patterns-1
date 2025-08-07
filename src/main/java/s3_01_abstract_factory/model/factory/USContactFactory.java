@@ -1,4 +1,11 @@
-package s3_01_abstract_factory;
+package s3_01_abstract_factory.model.factory;
+
+import s3_01_abstract_factory.model.product.InternationalAddress;
+import s3_01_abstract_factory.model.product.InternationalPhoneNumber;
+import s3_01_abstract_factory.model.product.USAddress;
+import s3_01_abstract_factory.model.product.USPhoneNumber;
+import s3_01_abstract_factory.model.dto.AddressDataDTO;
+import s3_01_abstract_factory.model.dto.PhoneNumberDataDTO;
 
 public class USContactFactory implements ContactFactory {
     @Override
@@ -6,10 +13,10 @@ public class USContactFactory implements ContactFactory {
         return new USAddress(
                 data.getStreet(),
                 data.getNumber(),
-                data.getApartment(), // Usamos apartment para EE. UU.
+                data.getApartment(),
                 data.getCity(),
-                data.getState(),     // ¡Usamos state para EE. UU.!
-                data.getZipCode(),   // Usamos zipCode para EE. UU.
+                data.getState(),
+                data.getZipCode(),
                 data.getCountry()
         );
     }

@@ -1,4 +1,6 @@
-package s3_01_abstract_factory;
+package s3_01_abstract_factory.model.dto;
+
+import s3_01_abstract_factory.model.product.InternationalPhoneNumber;
 
 public class PhoneNumberDataDTO {
     private String prefix;

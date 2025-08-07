@@ -1,4 +1,7 @@
-package s3_01_abstract_factory;
+package s3_01_abstract_factory.model;
+
+import s3_01_abstract_factory.model.product.InternationalAddress;
+import s3_01_abstract_factory.model.product.InternationalPhoneNumber;
 
 public class Contact {
     private InternationalAddress address;

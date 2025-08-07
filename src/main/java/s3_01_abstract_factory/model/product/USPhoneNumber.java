@@ -1,12 +1,11 @@
-package s3_01_abstract_factory;
+package s3_01_abstract_factory.model.product;
 
-public class SpanishPhoneNumber implements InternationalPhoneNumber {
-
+public class USPhoneNumber implements InternationalPhoneNumber {
     private Type type; //(FIXED/MOBILE)
     private String prefix;
     private String number;
 
-    public SpanishPhoneNumber(String prefix, String number, Type type) {
+    public USPhoneNumber(String prefix, String number, Type type) {
         this.prefix = prefix;
         this.number = number;
         this.type = type;
