@@ -56,10 +56,21 @@ public class USAddress implements InternationalAddress {
         return "us";
     }
 
+//    @Override
+//    public String getFormattedAddress() {
+//        return "St/ " + getStreet() + ", " + getNumber() + " " + getApartment() + ", "
+//                + getCity() + getState() +  " (" + getPostalCode() + ") - " + getCountry();
+//    }
+
     @Override
     public String getFormattedAddress() {
-        return "St/ " + getStreet() + ", " + getNumber() + " " + getApartment() + ", "
-                + getCity() + getState() +  " (" + getPostalCode() + ") - " + getCountry();
+        StringBuilder formatted = new StringBuilder();
+        formatted.append(number).append(" ").append(street);
+        if (apartment != null && !apartment.isEmpty()) {
+            formatted.append(", Apt ").append(apartment);
+        }
+        formatted.append(", ").append(city).append(", ").append(state).append(" ").append(zipCode).append(" ").append(country);
+        return formatted.toString();
     }
 
 }

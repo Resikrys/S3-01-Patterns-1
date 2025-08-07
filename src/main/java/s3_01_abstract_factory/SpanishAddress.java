@@ -52,10 +52,24 @@ public class SpanishAddress implements InternationalAddress {
         return "es";
     }
 
+//    @Override
+//    public String getFormattedAddress() {
+//        return "C/ " + getStreet() + ", " + getNumber() + " " + getFloor() + " " + getPortal() + ", "
+//                + getCity() + " (" + getPostalCode() + ") - " + getCountry();
+//    }
+
     @Override
     public String getFormattedAddress() {
-        return "C/ " + getStreet() + ", " + getNumber() + " " + getFloor() + " " + getPortal() + ", "
-                + getCity() + " (" + getPostalCode() + ") - " + getCountry();
+        StringBuilder formatted = new StringBuilder();
+        formatted.append(street).append(", ").append(number);
+        if (floor != null && !floor.isEmpty()) {
+            formatted.append(" ").append(floor);
+        }
+        if (portal != null && !portal.isEmpty()) {
+            formatted.append(" ").append(portal);
+        }
+        formatted.append(", ").append(city).append(" (").append(postalCode).append(") - ").append(country);
+        return formatted.toString();
     }
 
 }
