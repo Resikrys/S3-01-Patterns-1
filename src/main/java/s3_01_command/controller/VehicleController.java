@@ -13,7 +13,7 @@ public class VehicleController {
         if(command != null) {
             command.execute();
         } else {
-            System.out.println("No command received.");
+            throw new IllegalStateException("No command has been set.");
         }
     }
 }
