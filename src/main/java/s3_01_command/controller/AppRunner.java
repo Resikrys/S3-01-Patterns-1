@@ -7,7 +7,6 @@ import java.util.Map;
 
 public class AppRunner {
     public static void runDemo() {
-        // Fase de Configuración
         Vehicle car = AppSetup.createCar("Citroën shark");
         Vehicle bike = AppSetup.createBike("Yellow");
         Vehicle plane = AppSetup.createPlane("Boeing 747");
@@ -18,7 +17,6 @@ public class AppRunner {
         Map<String, Command> planeCommands = AppSetup.createVehicleCommands(plane);
         Map<String, Command> boatCommands = AppSetup.createVehicleCommands(boat);
 
-        // Fase de Ejecución
         VehicleController controller = new VehicleController();
 
         System.out.println("\n--- Car Actions ---");
