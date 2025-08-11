@@ -1,4 +1,6 @@
-package s3_01_command;
+package s3_01_command.command;
+
+import s3_01_command.vehicle.Vehicle;
 
 public class StartCommand implements Command {
     private Vehicle vehicle;

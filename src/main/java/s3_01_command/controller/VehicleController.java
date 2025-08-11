@@ -1,4 +1,6 @@
-package s3_01_command;
+package s3_01_command.controller;
+
+import s3_01_command.command.Command;
 
 public class VehicleController {
     private Command command;

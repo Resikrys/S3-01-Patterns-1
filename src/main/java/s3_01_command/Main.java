@@ -1,5 +1,15 @@
 package s3_01_command;
 
+import s3_01_command.command.AccelerateCommand;
+import s3_01_command.command.BrakeCommand;
+import s3_01_command.command.Command;
+import s3_01_command.command.StartCommand;
+import s3_01_command.controller.VehicleController;
+import s3_01_command.vehicle.Bike;
+import s3_01_command.vehicle.Boat;
+import s3_01_command.vehicle.Car;
+import s3_01_command.vehicle.Plane;
+
 public class Main {
     public static void main(String[] args) {
         Car car = new Car("Citroën shark");

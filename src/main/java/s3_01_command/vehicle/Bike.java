@@ -1,4 +1,4 @@
-package s3_01_command;
+package s3_01_command.vehicle;
 
 public class Bike implements Vehicle {
     private String color;

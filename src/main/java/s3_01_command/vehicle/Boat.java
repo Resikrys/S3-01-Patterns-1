@@ -1,4 +1,4 @@
-package s3_01_command;
+package s3_01_command.vehicle;
 
 public class Boat implements Vehicle {
     private String model;
