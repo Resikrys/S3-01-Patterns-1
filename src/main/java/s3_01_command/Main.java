@@ -4,6 +4,7 @@ import s3_01_command.command.AccelerateCommand;
 import s3_01_command.command.BrakeCommand;
 import s3_01_command.command.Command;
 import s3_01_command.command.StartCommand;
+import s3_01_command.controller.AppSetup;
 import s3_01_command.controller.VehicleController;
 import s3_01_command.vehicle.*;
 
@@ -12,32 +13,15 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        // 1. Fase de Configuración (Setup): Crear vehículos y comandos.
         Vehicle car = new Car("Citroën shark");
         Vehicle bike = new Bike("Yellow");
         Vehicle plane = new Plane("Boeing 747");
         Vehicle boat = new Boat("Pirate brig");
 
-        // Creamos una lista de comandos para cada vehículo
-        Map<String, Command> carCommands = new HashMap<>();
-        carCommands.put("start", new StartCommand(car));
-        carCommands.put("accelerate", new AccelerateCommand(car));
-        carCommands.put("brake", new BrakeCommand(car));
-
-        Map<String, Command> bikeCommands = new HashMap<>();
-        bikeCommands.put("start", new StartCommand(bike));
-        bikeCommands.put("accelerate", new AccelerateCommand(bike));
-        bikeCommands.put("brake", new BrakeCommand(bike));
-
-        Map<String, Command> planeCommands = new HashMap<>();
-        planeCommands.put("start", new StartCommand(plane));
-        planeCommands.put("accelerate", new AccelerateCommand(plane));
-        planeCommands.put("brake", new BrakeCommand(plane));
-
-        Map<String, Command> boatCommands = new HashMap<>();
-        boatCommands.put("start", new StartCommand(boat));
-        boatCommands.put("accelerate", new AccelerateCommand(boat));
-        boatCommands.put("brake", new BrakeCommand(boat));
+        Map<String, Command> carCommands = AppSetup.createVehicleCommands(car);
+        Map<String, Command> bikeCommands = AppSetup.createVehicleCommands(bike);
+        Map<String, Command> planeCommands = AppSetup.createVehicleCommands(plane);
+        Map<String, Command> boatCommands = AppSetup.createVehicleCommands(boat);
 
         // 2. Fase de Ejecución: Utilizar el controlador para ejecutar los comandos.
         VehicleController controller = new VehicleController();
