@@ -11,6 +11,7 @@ public class AccelerateCommand implements Command {
 
     @Override
     public void execute() {
-        vehicle.accelerate();
+        String message = vehicle.accelerate();
+        System.out.println(message);
     }
 }

@@ -11,6 +11,7 @@ public class BrakeCommand implements Command {
 
     @Override
     public void execute() {
-        vehicle.brake();
+        String message = vehicle.brake();
+        System.out.println(message);
     }
 }

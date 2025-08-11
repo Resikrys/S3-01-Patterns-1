@@ -11,6 +11,7 @@ public class StartCommand implements Command {
 
     @Override
     public void execute() {
-        vehicle.start();
+        String message = vehicle.start();
+        System.out.println(message);
     }
 }
