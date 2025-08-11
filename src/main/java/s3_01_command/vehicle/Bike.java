@@ -8,17 +8,17 @@ public class Bike implements Vehicle {
     }
 
     @Override
-    public void start() {
-        System.out.println(color + " Bike: Ready, steady, go!!");
+    public String start() {
+        return color + " Bike: Ready, steady, go!!";
     }
 
     @Override
-    public void accelerate() {
-        System.out.println(color + " Bike: Catch me if you can!");
+    public String accelerate() {
+        return color + " Bike: Catch me if you can!";
     }
 
     @Override
-    public void brake() {
-        System.out.println(color + " Bike: Braking now. Squeeeal!");
+    public String brake() {
+        return color + " Bike: Braking now. Squeeeal!";
     }
 }

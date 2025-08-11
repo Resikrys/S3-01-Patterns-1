@@ -9,17 +9,17 @@ public class Car implements Vehicle {
     }
 
     @Override
-    public void start() {
-        System.out.println(model + " Car: Engine started. Vroom vroom!");
+    public String start() {
+        return model + " Car: Engine started. Vroom vroom!";
     }
 
     @Override
-    public void accelerate() {
-        System.out.println(model + " Car: Speeding up!");
+    public String accelerate() {
+        return model + " Car: Speeding up!";
     }
 
     @Override
-    public void brake() {
-        System.out.println(model + " Car: Braking now. Squeeeal!");
+    public String brake() {
+        return model + " Car: Braking now. Squeeeal!";
     }
 }

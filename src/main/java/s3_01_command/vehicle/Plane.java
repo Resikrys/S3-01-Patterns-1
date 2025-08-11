@@ -8,17 +8,17 @@ public class Plane implements Vehicle {
     }
 
     @Override
-    public void start() {
-        System.out.println(model + " Plane: To infinity and beyond!");
+    public String start() {
+        return model + " Plane: To infinity and beyond!";
     }
 
     @Override
-    public void accelerate() {
-        System.out.println(model + " Plane: Watch out, little birds!");
+    public String accelerate() {
+        return model + " Plane: Watch out, little birds!";
     }
 
     @Override
-    public void brake() {
-        System.out.println(model + " Plane: Time to slow down!");
+    public String brake() {
+        return model + " Plane: Time to slow down!";
     }
 }

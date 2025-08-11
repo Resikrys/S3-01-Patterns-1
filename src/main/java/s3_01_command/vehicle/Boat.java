@@ -8,17 +8,17 @@ public class Boat implements Vehicle {
     }
 
     @Override
-    public void start() {
-        System.out.println(model + " Boat: Engine started. Vroom vroom!");
+    public String start() {
+        return model + " Boat: Engine started. Vroom vroom!";
     }
 
     @Override
-    public void accelerate() {
-        System.out.println(model + " Boat: Speeding up!");
+    public String accelerate() {
+        return model + " Boat: Speeding up!";
     }
 
     @Override
-    public void brake() {
-        System.out.println(model + " Boat: Land in sight!");
+    public String brake() {
+        return model + " Boat: Land in sight!";
     }
 }
